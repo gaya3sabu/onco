@@ -1,0 +1,112 @@
+<html>
+<head>
+
+    {% include "cancerdet/header.html" %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1><center>Cancer Details</center></h1>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <table align=center>
+        <tr>
+            <td><b>
+                Name:
+            </b>
+            </td>
+
+            <td>
+                {{ form.name }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                Symptom:
+            </b>
+            </td>
+            <td>
+                {{ form.symptom }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                Cause:
+            </b>
+            </td>
+            <td>
+                {{ form.cause }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                Test:
+            </b>
+            </td>
+            <td>
+                {{ form.test}}
+            </td>
+        </tr>
+         <tr>
+            <td><b>
+                Treatment:
+            </b>
+            </td>
+            <td>
+                {{ form.treatment}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <input type="submit" name="submit" value="INSERT">
+            </td>
+            <td>
+                <input type="submit" name="submit" value="RESET">
+            </td>
+        </tr>
+         </table>
+</form>
+     <table border="1" align="center">
+    <tr>
+        <td> Name</td>
+        <td>Symptom</td>
+        <td>Cause</td>
+        <td> Test</td>
+        <td> Treatment</td>
+        <td>Edit/Delete</td>
+    </tr>
+         {% for obj in data %}
+    <tr>
+        <td>{{ obj.name }}</td>
+        <td>{{ obj.symptom }}</td>
+        <td>{{ obj.cause }}</td>
+        <td>{{ obj.test }}</td>
+        <td>{{ obj.treatment }}</td>
+        <td>
+            <a href="{% url 'cancerdet:edit_cancerdetreg' pk=obj.id %}">edit</a>
+            <a href="{% url 'cancerdet:delete_cancerdetreg' pk=obj.id %}">delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+<br>
+<br>
+{% include "footer.html" %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</html>

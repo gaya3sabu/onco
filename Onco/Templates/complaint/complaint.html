@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <h1 align="center">COMPLAINT</h1>
+    <table align="center">
+        <tr>
+            <td>
+                Complaint Content :
+            </td>
+            <td>
+                {{ form.complaintcontent }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Parlour Id :
+            </td>
+            <td>
+                {{ form.parlour_id }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="submit" value="INSERT" >
+            </td>
+            <td>
+                <input type="submit" name="submit" value="RESET">
+            </td>
+        </tr>
+    </table>
+</form>
+<table border="1" align="center">
+    <tr>
+        <td>Complaint id</td>
+        <td>Complaint Content</td>
+        <td>Parlour_id</td>
+        <td>Edit/Delete</td>
+    </tr>
+    {% for obj in data %}
+    <tr>
+        <td>{{ obj.id }}</td>
+        <td>{{ obj.complaintcontent }}</td>
+        <td>{{ obj.parlour_id }}</td>
+        <td>
+            <a href="{% url 'complaint:edit_complaint' pk=obj.id %}">edit</a>
+            <a href="{% url 'complaint:delete_complaint' pk=obj.id %}">delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>

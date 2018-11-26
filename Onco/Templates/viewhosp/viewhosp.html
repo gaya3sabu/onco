@@ -1,0 +1,53 @@
+<html lang="en">
+{% load static %}
+<head>
+    <br>
+    <br>
+    <br>
+
+    <div align="left">
+
+     <img src="{% static 'img/rcc.jpg' %}" width="620" height="450" >
+         <img src="{% static 'img/aph.jpg' %}" width="620" height="450" >
+
+
+
+    </div>
+
+</head>
+{% include "viewhosp/viewheader.html" %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<body>
+
+ {% for obj in data %}
+ <table align="center" width="50%" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+     <tr><td>Name</td><td>{{ obj.name }}</td></tr>
+     <tr><td>Place</td><td>{{ obj.place }}</td></tr>
+     <tr><td>City </td><td>{{ obj.city }}</td></tr>
+     <tr><td>District</td><td>{{ obj.district }}</td></tr>
+     <tr><td>Email</td><td>{{ obj.email }}</td></tr>
+     <tr><td>Phone</td><td>{{ obj.phone }}</td></tr>
+
+      </table>
+ <br>
+ <br>
+ <br>
+
+ {% endfor %}
+
+
+
+</body>
+<br>
+<br>
+<br>
+{% include "footer.html" %}
+</html>

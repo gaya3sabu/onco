@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <h3>Manager Home Page </h3>
+    <br>
+    <br>
+    <br>
+    <div align="left">
+
+     <img src="{% static 'img/sth.jpg' %}" width="630" height="450" >
+       <img src="{% static 'img/main2.jpg' %}" width="630" height="450" >
+
+   </div>
+     {% include "managerhomepage/managerheader.html" %}
+</head>
+<br>
+
+
+<a href="{% url 'cancerdet:CandetRegForm' %}"></a><br>
+<a href="{% url 'hospital:HospRegForm' %}"></a><br>
+<a href="{% url 'doctors:DocRegForm' %}"></a><br>
+<a href="{% url 'parlour:ParlourRegForm' %}"></a><br>
+
+
+
+
+</body>
+{% include "footer.html" %}
+</html>

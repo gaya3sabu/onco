@@ -1,0 +1,137 @@
+<html>
+{% load static %}
+<head>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <div align="left">
+ <img src="{% static 'img/hd2.jpg' %}" width="620" height="300" >
+        <img src="{% static 'img/hd.jpg' %}" width="620" height="300" >
+
+    </div>
+
+    {% include "userreg/header.html" %}
+    <br>
+    <br>
+    <br>
+    <h1><center>Hair Donation User Registration</center></h1>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <table align=center>
+        <tr>
+            <td><b>
+                Name:
+            </b>
+            </td>
+
+            <td>
+                {{ form.name }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                Gender:
+            </b>
+            </td>
+            <td>
+                {{ form.gender }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                Age:
+            </b>
+            </td>
+            <td>
+                {{ form.age }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                Place:
+            </b>
+            </td>
+            <td>
+                {{ form.place }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                City:
+            </b>
+            </td>
+            <td>
+                {{ form.city }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                District:
+            </b>
+            </td>
+            <td>
+                {{ form.district }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                Phone:
+            </b>
+            </td>
+            <td>
+                {{ form.phone }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                Email:
+            </b>
+            </td>
+            <td>
+                {{ form.email }}
+            </td>
+        </tr>
+
+        <tr>
+            <td><b>
+                Username:
+            </b>
+            </td>
+            <td>
+                {{ form.username }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                Password:
+            </b>
+            </td>
+            <td>
+                {{ form.password }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <button type="submit">REGISTER</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{% url 'userlogin:login_forms' %}">LOGIN</a>
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+{% include "footer.html" %}
+</body>
+</html>

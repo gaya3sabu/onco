@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <h3> Home Page </h3>
+    <br>
+    <br>
+
+     {% include "mainhome/header.html" %}
+
+</head>
+
+<!--<a href="{% url 'managerlogin:managerlogin_form' %}"></a><br>-->
+<!--<a href="{% url 'bduser:BduserRegForm' %}"></a><br>-->
+<!--<a href="{% url 'user:UserRegForm' %}"></a><br>-->
+<a href="{% url 'viewhosp:Form' %}"></a><br>
+<a href="{% url 'viewdoc:Form' %}"></a></li>
+<a href="{% url 'cancerview:Form' %}"></a>
+
+</html>

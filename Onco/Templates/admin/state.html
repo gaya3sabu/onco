@@ -1,0 +1,47 @@
+<html>
+<head>
+    <h1><center>State</center></h1>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <table align=center>
+        <tr>
+            <td>
+                State Name:
+            </td>
+            <td>
+                {{ form.name }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <button type="submit">Register</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<tablr border=""1 align="center">
+    <tr>
+        <td>Feedback id</td>
+        <td>Feedback content</td>
+        <td>Parlour id</td>
+        <td>Edit/Delete</td>
+    </tr>
+    {% for obj in data %}
+    <tr>
+        <td>{{ obj.id }}</td>
+        <td>{{ obj.feedbackcontent }}</td>
+        <td>{{ obj.bus_id }}</td>
+        <td>
+            <a href="{% url 'feedback:edit_feedback' pk=obj.id %}">edit</a>
+            <a href="{% url 'feedback:delete_feedback' pk=obj.id %}">delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>

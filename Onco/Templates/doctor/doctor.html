@@ -1,0 +1,133 @@
+<html>
+{% load static %}
+<head>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+ <div align="left">
+
+     <img src="{% static 'img/doc2.jpg' %}" width="1400" height="450" >
+
+
+
+    </div>
+    {% include "doctor/header.html" %}
+    <br>
+    <br>
+    <h1><center>Doctor Registration</center></h1>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <table align=center>
+        <tr>
+            <td><b>
+                Name:
+            </b>
+            </td>
+
+            <td>
+                {{ form.name }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                Place:
+            </b>
+            </td>
+            <td>
+                {{ form.place }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                City:
+            </b>
+            </td>
+            <td>
+                {{ form.city }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                District:
+            </b>
+            </td>
+            <td>
+                {{ form.district }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                Phone:
+            </b>
+            </td>
+            <td>
+                {{ form.phone }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                Email:
+            </b>
+            </td>
+            <td>
+                {{ form.email }}
+            </td>
+        </tr>
+        <tr>
+            <td><b>
+                Hosp_name:
+            </b>
+            </td>
+            <td>
+                {{ form.hosp_name }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <input type="submit" name="submit" value="INSERT">
+            </td>
+            <td>
+                <input type="submit" name="submit" value="RESET">
+            </td>
+        </tr>
+         </table>
+</form>
+     <table border="1" align="center">
+    <tr>
+        <td> Name</td>
+        <td>Place</td>
+        <td>City</td>
+        <td> District</td>
+        <td> Email</td>
+        <td> Phone</td>
+        <td> Hosp_name</td>
+        <td>Edit/Delete</td>
+    </tr>
+         {% for obj in data %}
+    <tr>
+        <td>{{ obj.name }}</td>
+        <td>{{ obj.place }}</td>
+        <td>{{ obj.city }}</td>
+        <td>{{ obj.district }}</td>
+        <td>{{ obj.email }}</td>
+        <td>{{ obj.phone }}</td>
+        <td>{{ obj.hosp_name }}</td>
+        <td>
+            <a href="{% url 'doctors:edit_docreg' pk=obj.id %}">edit</a>
+            <a href="{% url 'doctors:delete_docreg' pk=obj.id %}">delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+{% include "footer.html" %}
+</html>
